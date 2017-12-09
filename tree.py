@@ -1,5 +1,5 @@
 from modules.queue import Queue
-from copy import copy as cpy
+from copy import deepcopy as deepcopy
 import sys
 
 class Node:
@@ -10,6 +10,15 @@ class Node:
 
   def visit(self):
     sys.stdout.write(self.data)
+
+  def getNumNodes(self):
+    total = 0
+    if self.left:
+      total += self.left.getNumNodes()
+    if self.right:
+      total += self.right.getNumNodes()
+    return total + 1
+
 
   @classmethod
   def createTree(cls, depth):
@@ -56,11 +65,13 @@ class Node:
     # get height of tree
     total_layers = self.getHeight()
 
-    self.fillTree(total_layers)
+    tree = deepcopy(self)
+
+    tree.fillTree(total_layers)
     # start a queue for BFS
     queue = Queue()
     # add root to queue
-    queue.enqueue(self) # self = root
+    queue.enqueue(tree) # self = root
     # index for 'generation' or 'layer' of tree
     gen = 1 
     # BFS main
