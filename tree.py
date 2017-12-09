@@ -113,12 +113,12 @@ class Node:
         if node.left and node.left.data == " ":
           dash_left = " "
         else:
-          dash_left = "-"
+          dash_left = "_"
 
         if node.right and node.right.data == " ":
           dash_right = " "
         else:
-          dash_right = "-"
+          dash_right = "_"
         # ----------------------------->
 
         # -----------------------------
