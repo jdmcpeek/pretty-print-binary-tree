@@ -1,4 +1,10 @@
+Pretty-prints a binary tree with child fields `left` and `right`. Each node contains a `data` field, which is printed.
+
 Run `python tree.py` and check out the results.
+
+The tree may be of any depth, but usually after 6 levels it's too wide for most screens.
+
+Looks best when the nodes' printed values are under 3 characters long (especially on leaf nodes).
 
 ```python
 # prep the tree...
